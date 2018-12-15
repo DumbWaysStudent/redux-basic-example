@@ -2,10 +2,12 @@ import React, { Component }  from 'react'
 import { View, Text } from 'react-native'
 import { connect } from 'react-redux'
 
+import { INC } from './redux/actions'
+
 class Home extends Component {
 
     componentDidMount(){
-        this.props.dispatch({type: 'INC', payload: 2})
+        this.props.dispatch(INC())
     }
 
     render(){
