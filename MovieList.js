@@ -13,18 +13,26 @@ class MovieList extends Component {
     render(){
         return (
             <View>
-                {this.props.movies.map((movie)=>(
-                    <Text style={{fontSize: 30}} key={movie.id}>
-                        {movie.title}
-                    </Text>
-                ))}
+                {this.props.isLoading? (
+                    <Text>Loading</Text>
+                ): (
+                    <View>
+                        <Text>{JSON.stringify(this.props.movies)}</Text>
+                        {this.props.movies.map((movie)=>(
+                            <Text style={{fontSize: 30}} key={movie.id}>
+                                {movie.title}
+                            </Text>
+                        ))}
+                    </View>
+                )}                
             </View>
         )
     }
 }
 
 const mapStateToProps = (state) => ({
-  movies: state.movies
+  movies: state.movies,
+  isLoading: state.isLoading
 })
 
 export default connect(mapStateToProps)(MovieList)

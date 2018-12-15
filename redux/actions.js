@@ -1,17 +1,9 @@
-export function INC(){
-    return {
-        type: "INC",
-        payload: 2
-    }
-}
+import axios from 'axios'
 
 export function ALL_MOVIES(){
     return {
         type: "ALL_MOVIES",
-        payload: [
-            {id: 1, title: 'beranak dalam kolam'},
-            {id: 2, title: 'terbang dalam goa'},
-        ]
+        payload: axios.get('http://192.168.0.5:3333/movies')
     }
 }
 
