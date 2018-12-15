@@ -1,11 +1,14 @@
 const initialState = {
-    counter: 0
+    movies: [],
+    movie: {}    
 }
 
 export default function reducers(state=initialState, action){
-    switch (action.type){
-        case "INC":
-            return {...state, counter: state.counter + action.payload}       
+    switch (action.type){        
+        case "ALL_MOVIES":
+            return {...state, movies: action.payload}       
+        case "GET_MOVIE":
+            return {...state, movie: action.payload}       
         default:
             return state
     }
